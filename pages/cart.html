@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - PipDynamic</title>
+    <!-- Premium Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&family=Inter:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar glassy sticky">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo animated-logo"><span>Pip</span><span class="gradient-text">Dynamic</span></a>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products..." aria-label="Search for products">
+                <i class="fas fa-search"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="cart.html" class="cart-link active">
+                        <i class="fas fa-shopping-cart animated-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+            <button class="mobile-menu" aria-label="Open mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Cart Header -->
+    <header class="cart-header hero-glass" style="background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);">
+        <div class="container">
+            <h1 class="hero-title gradient-text" data-aos="fade-down">Shopping Cart</h1>
+        </div>
+        <div class="hero-glass-overlay"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="cart-main">
+        <div class="container">
+            <div class="cart-grid">
+                <!-- Cart Items -->
+                <section class="cart-items-section glassy" data-aos="fade-up">
+                    <h2>Your Items</h2>
+                    <div class="cart-items">
+                        <!-- Cart items will be dynamically inserted here -->
+                    </div>
+                    <div class="empty-cart-message" style="display: none;">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Your cart is empty</p>
+                        <a href="shop.html" class="btn btn-primary">Continue Shopping</a>
+                    </div>
+                </section>
+
+                <!-- Order Summary -->
+                <section class="order-summary glassy" data-aos="fade-up" data-aos-delay="100">
+                    <h2>Order Summary</h2>
+                    <div class="summary-item">
+                        <span>Subtotal</span>
+                        <span class="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Shipping</span>
+                        <span class="shipping">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Tax</span>
+                        <span class="tax">$0.00</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span>Total</span>
+                        <span class="total-amount">$0.00</span>
+                    </div>
+                    <button class="btn btn-primary checkout-btn" disabled>Proceed to Checkout</button>
+                </section>
+            </div>
+
+            <!-- Recommended Products -->
+            <section class="recommended-products" data-aos="fade-up" data-aos-delay="200">
+                <h2>You May Also Like</h2>
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card glassy">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=300&q=80" alt="Wireless Mouse">
+                        <div class="product-info">
+                            <h3>Wireless Mouse</h3>
+                            <p class="price">$49.99</p>
+                            <button class="btn btn-primary add-to-cart"
+                                    data-id="7"
+                                    data-name="Wireless Mouse"
+                                    data-price="49.99"
+                                    data-image="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=300&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card glassy">
+                        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=300&q=80" alt="Mechanical Keyboard">
+                        <div class="product-info">
+                            <h3>Mechanical Keyboard</h3>
+                            <p class="price">$129.99</p>
+                            <button class="btn btn-primary add-to-cart"
+                                    data-id="8"
+                                    data-name="Mechanical Keyboard"
+                                    data-price="129.99"
+                                    data-image="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=300&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card glassy">
+                        <img src="https://images.unsplash.com/photo-1512446733611-9099a758e082?auto=format&fit=crop&w=300&q=80" alt="Gaming Headset">
+                        <div class="product-info">
+                            <h3>Gaming Headset</h3>
+                            <p class="price">$89.99</p>
+                            <button class="btn btn-primary add-to-cart"
+                                    data-id="9"
+                                    data-name="Gaming Headset"
+                                    data-price="89.99"
+                                    data-image="https://images.unsplash.com/photo-1512446733611-9099a758e082?auto=format&fit=crop&w=300&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-card glassy" data-aos="fade-up">
+                <h2>Join Our Community</h2>
+                <p>Subscribe to our newsletter for exclusive offers and updates</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required aria-label="Email address">
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer gradient-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section glassy" data-aos="fade-up">
+                    <h3>About PipDynamic</h3>
+                    <p>Your destination for unique, handcrafted treasures. We connect talented artisans with customers who appreciate quality craftsmanship.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section glassy" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section glassy" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section glassy" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Artisan Street, City</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                        <li><i class="fas fa-envelope"></i> info@pipdynamic.com</li>
+                    </ul>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-cc-apple-pay"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PipDynamic. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="../scripts/main.js"></script>
+    <script>
+        // Cart page specific functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = new ShoppingCart();
+            const emptyCartMessage = document.querySelector('.empty-cart-message');
+            const cartItems = document.querySelector('.cart-items');
+            const checkoutBtn = document.querySelector('.checkout-btn');
+            const subtotalElement = document.querySelector('.subtotal');
+            const shippingElement = document.querySelector('.shipping');
+            const taxElement = document.querySelector('.tax');
+            const totalElement = document.querySelector('.total-amount');
+
+            function updateOrderSummary() {
+                const subtotal = cart.total;
+                const shipping = subtotal > 0 ? 10 : 0; // $10 shipping if items in cart
+                const tax = subtotal * 0.08; // 8% tax
+                const total = subtotal + shipping + tax;
+
+                subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+                shippingElement.textContent = `$${shipping.toFixed(2)}`;
+                taxElement.textContent = `$${tax.toFixed(2)}`;
+                totalElement.textContent = `$${total.toFixed(2)}`;
+
+                // Enable/disable checkout button
+                checkoutBtn.disabled = cart.cart.length === 0;
+            }
+
+            // Update cart display
+            function updateCartDisplay() {
+                if (cart.cart.length === 0) {
+                    emptyCartMessage.style.display = 'block';
+                    cartItems.style.display = 'none';
+                } else {
+                    emptyCartMessage.style.display = 'none';
+                    cartItems.style.display = 'block';
+                }
+                updateOrderSummary();
+            }
+
+            // Initialize cart display
+            updateCartDisplay();
+
+            // Checkout button handler
+            checkoutBtn.addEventListener('click', () => {
+                alert('Proceeding to checkout...');
+                // Here you would typically redirect to a checkout page
+            });
+        });
+    </script>
+</body>
+</html> 

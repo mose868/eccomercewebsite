@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PipDynamic - Shop the most innovative tech products with exceptional design and performance">
+    <title>PipDynamic - Premium Tech Shopping Experience</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/chat.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><span>Pip</span><span class="gradient-text">Dynamic</span></a>
+            
+            <div class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-list" id="nav-list">
+                <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="pages/shop.html" class="nav-link">Shop</a></li>
+                <li class="nav-item">
+                    <a href="pages/cart.html" class="nav-link cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">More <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pages/about.html">About Us</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
+                        <li><a href="pages/faq.html">FAQs</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1616348436168-de43ad0db179?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title animated-heading">Discover Tech that Defines the Future</h1>
+                <p class="hero-subtitle animated-text">Explore our collection of cutting-edge devices and accessories designed for modern living.</p>
+                <div class="hero-buttons">
+                    <a href="pages/shop.html" class="btn btn-primary btn-lg">Shop Now</a>
+                    <a href="pages/about.html" class="btn btn-outline btn-lg">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Featured Categories</h2>
+            <div class="category-grid">
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1600003263295-c216a5f2cfc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Smart Home Devices">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Smart Home</h3>
+                        <p class="card-text">Transform your living space with intelligent automation and control.</p>
+                        <a href="#" class="btn btn-outline">Explore</a>
+                    </div>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1505751171710-1f6d0ace5a85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wearable Tech">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Wearables</h3>
+                        <p class="card-text">Stay connected and monitor your health with cutting-edge wearable technology.</p>
+                        <a href="#" class="btn btn-outline">Explore</a>
+                    </div>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1546027658-7aa750153465?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Audio Devices">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Audio</h3>
+                        <p class="card-text">Experience crystal-clear sound with our premium audio collection.</p>
+                        <a href="#" class="btn btn-outline">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section" style="background-color: var(--surface);">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Featured Products</h2>
+            <div class="filter-sort">
+                <div class="filter-buttons">
+                    <button class="btn btn-sm active" data-category="all">All</button>
+                    <button class="btn btn-sm" data-category="smart-home">Smart Home</button>
+                    <button class="btn btn-sm" data-category="wearables">Wearables</button>
+                    <button class="btn btn-sm" data-category="audio">Audio</button>
+                </div>
+                <select class="form-select" aria-label="Sort products">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                </select>
+            </div>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-category="smart-home" data-aos="fade-up">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Smart Home Hub">
+                        <span class="product-badge">New</span>
+                        <div class="product-actions">
+                            <button class="action-btn wishlist" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn preview" aria-label="Quick view">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Smart Home Hub Pro</h3>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(42)</span>
+                            </div>
+                            <div class="price-container">
+                                <span class="price">$129.99</span>
+                                <span class="original-price">$159.99</span>
+                            </div>
+                        </div>
+                        <p class="product-description">Control your entire smart home ecosystem with this powerful hub featuring voice control and AI integration.</p>
+                        <button class="btn btn-primary add-to-cart" 
+                                data-id="1"
+                                data-name="Smart Home Hub Pro"
+                                data-price="129.99"
+                                data-image="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card" data-category="wearables" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Smart Watch">
+                        <span class="product-badge">Trending</span>
+                        <div class="product-actions">
+                            <button class="action-btn wishlist" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn preview" aria-label="Quick view">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>PipWatch Series 5</h3>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(78)</span>
+                            </div>
+                            <span class="price">$249.99</span>
+                        </div>
+                        <p class="product-description">Advanced fitness tracking, heart monitoring, and smart notifications in a sleek, water-resistant design.</p>
+                        <button class="btn btn-primary add-to-cart"
+                                data-id="2"
+                                data-name="PipWatch Series 5"
+                                data-price="249.99"
+                                data-image="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card" data-category="audio" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1606472170134-946bf856e865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wireless Earbuds">
+                        <span class="product-badge">Best Seller</span>
+                        <div class="product-actions">
+                            <button class="action-btn wishlist" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn preview" aria-label="Quick view">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>SoundPods Pro</h3>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(56)</span>
+                            </div>
+                            <span class="price">$179.99</span>
+                        </div>
+                        <p class="product-description">Immersive sound quality with noise cancellation, touch controls, and 24-hour battery life.</p>
+                        <button class="btn btn-primary add-to-cart"
+                                data-id="3"
+                                data-name="SoundPods Pro"
+                                data-price="179.99"
+                                data-image="https://images.unsplash.com/photo-1606472170134-946bf856e865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10" data-aos="fade-up">
+                <a href="pages/shop.html" class="btn btn-lg btn-secondary">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Why Choose PipDynamic</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Free Shipping</h3>
+                    <p>Enjoy free shipping on all orders over $50. Fast delivery to your doorstep.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure Payments</h3>
+                    <p>Shop with confidence with our 100% secure payment processing.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <h3>Easy Returns</h3>
+                    <p>30-day easy return policy if you're not completely satisfied.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Our customer support team is available around the clock to assist you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2 class="newsletter-title" data-aos="fade-up">Stay Updated</h2>
+                <p class="newsletter-text" data-aos="fade-up" data-aos-delay="100">Subscribe to our newsletter for exclusive deals and updates on new products.</p>
+                <form class="newsletter-form" data-aos="fade-up" data-aos-delay="200">
+                    <input type="email" placeholder="Enter your email" required aria-label="Email address">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section" data-aos="fade-up">
+                    <h3>About PipDynamic</h3>
+                    <p>We are dedicated to bringing you the latest technology and innovative products to enhance your everyday life.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="pages/about.html">About Us</a></li>
+                        <li><a href="pages/shop.html">Shop</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Innovation City</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                        <li><i class="fas fa-envelope"></i> info@pipdynamic.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PipDynamic. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Live Chat Widget -->
+    <div class="live-chat-icon" id="live-chat-icon" aria-label="Open live chat" tabindex="0">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+    <div class="live-chat-box" id="live-chat-box" role="dialog" aria-modal="true" aria-labelledby="live-chat-header">
+        <div class="live-chat-header" id="live-chat-header">
+            <div class="chat-title">
+                <i class="fas fa-comment-dots"></i>
+                <span>PipDynamic Support</span>
+            </div>
+            <button class="close-modal" id="close-live-chat" aria-label="Close chat">&times;</button>
+        </div>
+        <div class="live-chat-messages" id="live-chat-messages">
+            <!-- Messages will be added here dynamically -->
+        </div>
+        <form class="live-chat-input" id="live-chat-form" autocomplete="off">
+            <input type="text" id="live-chat-input" placeholder="Type your message..." aria-label="Type your message">
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+        </form>
+    </div>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/chat-support.js"></script>
+</body>
+</html> 

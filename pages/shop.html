@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PipDynamic Shop 2025</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        body {
+            font-family: 'Raleway', 'Inter', 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+            min-height: 100vh;
+        }
+        .navbar {
+            background: rgba(255,255,255,0.7);
+            box-shadow: 0 2px 16px rgba(44,62,80,0.07);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+        .navbar.scrolled {
+            background: rgba(255,255,255,0.92);
+            box-shadow: 0 4px 32px rgba(44,62,80,0.13);
+        }
+        .mobile-menu {
+            background: none;
+            border: none;
+            font-size: 1.7rem;
+            color: #2C3E50;
+            cursor: pointer;
+            display: none;
+        }
+        @media (max-width: 900px) {
+            .mobile-menu { display: block; }
+            .nav-links { display: none; position: absolute; top: 80px; left: 0; right: 0; background: rgba(255,255,255,0.97); box-shadow: 0 8px 32px rgba(44,62,80,0.13); flex-direction: column; align-items: center; z-index: 100; }
+            .nav-links.active { display: flex; }
+        }
+        .shop-hero {
+            position: relative;
+            background: linear-gradient(120deg, rgba(78,205,196,0.7) 0%, rgba(255,107,107,0.7) 100%), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1500&q=80') center/cover;
+            min-height: 340px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .shop-hero-glass {
+            background: rgba(255,255,255,0.25);
+            box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            text-align: center;
+            max-width: 600px;
+            margin: 3rem auto;
+            color: #2C3E50;
+            border: 1.5px solid rgba(255,255,255,0.25);
+            position: relative;
+        }
+        .shop-hero-glass h1 {
+            font-family: 'Poppins', 'Raleway', sans-serif;
+            font-size: 2.7rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+            background: linear-gradient(90deg, #FF6B6B 0%, #4ECDC4 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .shop-hero-glass p {
+            font-size: 1.2rem;
+            color: #34495E;
+            margin-bottom: 2rem;
+        }
+        .shop-hero-glass .cta-btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #FFD93D 0%, #FFA41B 100%);
+            color: #fff;
+            border: none;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(255, 107, 107, 0.12);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .shop-hero-glass .cta-btn:hover {
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.18);
+        }
+        .shop-hero-glass .cta-btn::after {
+            content: '';
+            position: absolute;
+            left: -75%;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg,rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.0) 100%);
+            transform: skewX(-20deg);
+            transition: left 0.5s;
+        }
+        .shop-hero-glass .cta-btn:hover::after {
+            left: 120%;
+        }
+        /* Floating icons for hero */
+        .shop-hero .floating-icon {
+            position: absolute;
+            font-size: 2.2rem;
+            opacity: 0.13;
+            pointer-events: none;
+            animation: floatY 4s ease-in-out infinite alternate;
+        }
+        .shop-hero .floating-icon.icon1 { left: 8%; top: 18%; color: #FF6B6B; animation-delay: 0s; }
+        .shop-hero .floating-icon.icon2 { right: 10%; top: 30%; color: #FFD93D; animation-delay: 1s; }
+        .shop-hero .floating-icon.icon3 { left: 20%; bottom: 10%; color: #4ECDC4; animation-delay: 2s; }
+        .shop-hero .floating-icon.icon4 { right: 18%; bottom: 12%; color: #FFA41B; animation-delay: 2.5s; }
+        @keyframes floatY {
+            from { transform: translateY(0); }
+            to { transform: translateY(-18px); }
+        }
+        /* Product Grid */
+        .shop-products-section {
+            padding: 3rem 0 2rem 0;
+        }
+        .shop-product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+        .shop-product-card {
+            background: rgba(255,255,255,0.85);
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(44,62,80,0.08), 0 1.5px 8px rgba(255,107,107,0.07);
+            overflow: hidden;
+            position: relative;
+            transition: box-shadow 0.3s, transform 0.3s;
+            will-change: transform;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            min-height: 420px;
+            perspective: 800px;
+        }
+        .shop-product-card:hover {
+            box-shadow: 0 8px 40px 0 rgba(255,107,107,0.18), 0 2px 12px rgba(78,205,196,0.10);
+            transform: translateY(-6px) scale(1.025) rotateZ(-0.5deg);
+        }
+        .shop-product-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.35s cubic-bezier(.23,1.01,.32,1);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+        .shop-product-card:hover .shop-product-img {
+            transform: scale(1.07) rotateZ(1deg);
+            filter: brightness(1.08) drop-shadow(0 0 12px #FFD93D44);
+        }
+        .shop-product-info {
+            flex: 1;
+            padding: 1.3rem 1.5rem 1.2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .shop-product-title {
+            font-family: 'Poppins', 'Raleway', sans-serif;
+            font-size: 1.18rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2C3E50;
+        }
+        .shop-product-desc {
+            font-size: 0.98rem;
+            color: #7F8C8D;
+            margin-bottom: 1.1rem;
+            min-height: 44px;
+        }
+        .shop-product-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .shop-product-price {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #FF6B6B;
+        }
+        .shop-product-badge {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            background: linear-gradient(90deg, #FFD93D 0%, #FFA41B 100%);
+            color: #fff;
+            font-size: 0.92rem;
+            font-weight: 700;
+            padding: 0.45em 1.1em;
+            border-radius: 999px;
+            box-shadow: 0 2px 8px rgba(255, 217, 61, 0.13);
+            letter-spacing: 0.5px;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 0.4em;
+            animation: fadeIn 0.7s cubic-bezier(.23,1.01,.32,1);
+        }
+        .shop-product-actions {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .shop-product-card:hover .shop-product-actions {
+            opacity: 1;
+        }
+        .shop-quick-view-btn {
+            background: rgba(255,255,255,0.85);
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2C3E50;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .shop-quick-view-btn:hover, .shop-quick-view-btn:focus {
+            background: linear-gradient(90deg, #FFD93D 0%, #FFA41B 100%);
+            color: #fff;
+            outline: 2px solid #FFD93D;
+        }
+        .shop-add-cart-btn {
+            background: linear-gradient(90deg, #4ECDC4 0%, #FF6B6B 100%);
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            padding: 0.7em 1.7em;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 2px 12px rgba(78,205,196,0.10);
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+        }
+        .shop-add-cart-btn:active {
+            transform: scale(0.97);
+        }
+        .shop-add-cart-btn.cart-animate {
+            animation: cartBounce 0.5s;
+        }
+        .shop-add-cart-btn .fa-shopping-cart {
+            animation: cartBounce 0.5s infinite alternate;
+        }
+        .shop-product-card:hover .shop-add-cart-btn {
+            background: linear-gradient(90deg, #FF6B6B 0%, #FFD93D 100%);
+            box-shadow: 0 4px 16px rgba(255, 107, 107, 0.13);
+        }
+        /* Responsive */
+        @media (max-width: 900px) {
+            .shop-hero-glass { padding: 2rem 1rem; }
+            .shop-product-grid { gap: 1.5rem; }
+        }
+        @media (max-width: 600px) {
+            .shop-hero-glass { margin: 1.5rem 0; }
+            .shop-product-grid { grid-template-columns: 1fr; }
+            .shop-product-card { min-height: 340px; }
+        }
+        /* Footer Gradient */
+        .footer {
+            background: linear-gradient(90deg, #4ECDC4 0%, #FF6B6B 100%);
+            color: #fff;
+            padding: 2.5rem 0 1.2rem 0;
+            margin-top: 3rem;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-section {
+            min-width: 180px;
+            flex: 1 1 200px;
+        }
+        .footer-section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-section ul li {
+            margin-bottom: 0.7em;
+        }
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+        .footer-section ul li a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        .footer-social {
+            display: flex;
+            gap: 1.1em;
+            margin-top: 1.2em;
+        }
+        .footer-social a {
+            color: #fff;
+            font-size: 1.3em;
+            opacity: 0.85;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+        .footer-social a:hover, .footer-social a:focus {
+            opacity: 1;
+            transform: translateY(-2px) scale(1.1);
+            outline: 2px solid #FFD93D;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.98rem;
+            opacity: 0.85;
+        }
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            right: 2rem;
+            bottom: 2rem;
+            background: linear-gradient(90deg, #FFD93D 0%, #FF6B6B 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 16px rgba(255, 107, 107, 0.18);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 100;
+        }
+        .scroll-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes cartBounce {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.18); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Header -->
+    <nav class="navbar" aria-label="Main Navigation">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo" style="font-family:'Poppins',sans-serif;font-size:2rem;">PipDynamic</a>
+            <ul class="nav-links" role="menubar">
+                <li><a href="shop.html" class="active" role="menuitem" tabindex="0">Shop</a></li>
+                <li><a href="about.html" role="menuitem" tabindex="0">About</a></li>
+                <li><a href="contact.html" role="menuitem" tabindex="0">Contact</a></li>
+                <li>
+                    <a href="cart.html" class="cart-link" aria-label="View cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+            <button class="mobile-menu" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="shop-hero">
+        <div class="shop-hero-glass" data-aos="fade-down">
+            <h1>Shop 2025's Most Dynamic Tech</h1>
+            <p>Discover trending gadgets, smart home essentials, and the latest in personal tech. Curated for the future, delivered today.</p>
+            <a href="#products" class="cta-btn">Browse Products <i class="fas fa-arrow-down"></i></a>
+        </div>
+        <i class="fas fa-bolt floating-icon icon1"></i>
+        <i class="fas fa-microchip floating-icon icon2"></i>
+        <i class="fas fa-wifi floating-icon icon3"></i>
+        <i class="fas fa-star floating-icon icon4"></i>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="shop-products-section" id="products">
+        <div class="container">
+            <div class="shop-product-grid">
+                <!-- Product 1 -->
+                <div class="shop-product-card" data-aos="fade-up" data-aos-delay="0" tabindex="0" aria-label="Wireless Earbuds Pro">
+                    <span class="shop-product-badge">🔥 Trending</span>
+                    <div class="shop-product-actions">
+                        <button class="shop-quick-view-btn" aria-label="Quick view Wireless Earbuds Pro"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <img class="shop-product-img" src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80" alt="Wireless Earbuds Pro">
+                    <div class="shop-product-info">
+                        <div>
+                            <div class="shop-product-title">Wireless Earbuds Pro</div>
+                            <div class="shop-product-desc">Crystal-clear sound, active noise cancellation, and 36h battery life.</div>
+                        </div>
+                        <div class="shop-product-bottom">
+                            <span class="shop-product-price">$129.99</span>
+                            <button class="shop-add-cart-btn" aria-label="Add Wireless Earbuds Pro to cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="shop-product-card" data-aos="fade-up" data-aos-delay="100" tabindex="0" aria-label="Smart Lamp 2.0">
+                    <span class="shop-product-badge">🚀 New</span>
+                    <div class="shop-product-actions">
+                        <button class="shop-quick-view-btn" aria-label="Quick view Smart Lamp 2.0"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <img class="shop-product-img" src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Smart Lamp 2.0">
+                    <div class="shop-product-info">
+                        <div>
+                            <div class="shop-product-title">Smart Lamp 2.0</div>
+                            <div class="shop-product-desc">Touch controls, RGB ambient lighting, and wireless charging base.</div>
+                        </div>
+                        <div class="shop-product-bottom">
+                            <span class="shop-product-price">$89.00</span>
+                            <button class="shop-add-cart-btn" aria-label="Add Smart Lamp 2.0 to cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="shop-product-card" data-aos="fade-up" data-aos-delay="200" tabindex="0" aria-label="Fitness Tracker X">
+                    <span class="shop-product-badge">⭐ Best Seller</span>
+                    <div class="shop-product-actions">
+                        <button class="shop-quick-view-btn" aria-label="Quick view Fitness Tracker X"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <img class="shop-product-img" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Fitness Tracker X">
+                    <div class="shop-product-info">
+                        <div>
+                            <div class="shop-product-title">Fitness Tracker X</div>
+                            <div class="shop-product-desc">Track your health, sleep, and workouts with a vibrant AMOLED display.</div>
+                        </div>
+                        <div class="shop-product-bottom">
+                            <span class="shop-product-price">$59.99</span>
+                            <button class="shop-add-cart-btn" aria-label="Add Fitness Tracker X to cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="shop-product-card" data-aos="fade-up" data-aos-delay="300" tabindex="0" aria-label="Portable Projector Mini">
+                    <span class="shop-product-badge">💡 Editor's Pick</span>
+                    <div class="shop-product-actions">
+                        <button class="shop-quick-view-btn" aria-label="Quick view Portable Projector Mini"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <img class="shop-product-img" src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=600&q=80" alt="Portable Projector Mini">
+                    <div class="shop-product-info">
+                        <div>
+                            <div class="shop-product-title">Portable Projector Mini</div>
+                            <div class="shop-product-desc">Big-screen experience anywhere. 1080p, WiFi, and 4h battery.</div>
+                        </div>
+                        <div class="shop-product-bottom">
+                            <span class="shop-product-price">$199.00</span>
+                            <button class="shop-add-cart-btn" aria-label="Add Portable Projector Mini to cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 5 -->
+                <div class="shop-product-card" data-aos="fade-up" data-aos-delay="400" tabindex="0" aria-label="Solar Power Bank">
+                    <span class="shop-product-badge">🌱 Eco</span>
+                    <div class="shop-product-actions">
+                        <button class="shop-quick-view-btn" aria-label="Quick view Solar Power Bank"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <img class="shop-product-img" src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80" alt="Solar Power Bank">
+                    <div class="shop-product-info">
+                        <div>
+                            <div class="shop-product-title">Solar Power Bank</div>
+                            <div class="shop-product-desc">Charge your devices anywhere with clean, renewable energy.</div>
+                        </div>
+                        <div class="shop-product-bottom">
+                            <span class="shop-product-price">$39.99</span>
+                            <button class="shop-add-cart-btn" aria-label="Add Solar Power Bank to cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 6 -->
+                <div class="shop-product-card" data-aos="fade-up" data-aos-delay="500" tabindex="0" aria-label="Noise Cancelling Headphones">
+                    <span class="shop-product-badge">🎧 Staff Favorite</span>
+                    <div class="shop-product-actions">
+                        <button class="shop-quick-view-btn" aria-label="Quick view Noise Cancelling Headphones"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <img class="shop-product-img" src="https://images.unsplash.com/photo-1512446733611-9099a758e082?auto=format&fit=crop&w=600&q=80" alt="Noise Cancelling Headphones">
+                    <div class="shop-product-info">
+                        <div>
+                            <div class="shop-product-title">Noise Cancelling Headphones</div>
+                            <div class="shop-product-desc">Immersive sound, 40h battery, and plush comfort for all-day wear.</div>
+                        </div>
+                        <div class="shop-product-bottom">
+                            <span class="shop-product-price">$179.00</span>
+                            <button class="shop-add-cart-btn" aria-label="Add Noise Cancelling Headphones to cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PipDynamic</h3>
+                <p>2025's most dynamic tech marketplace. Discover, shop, and enjoy the future today.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 PipDynamic. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 900,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+        // Scroll to top button
+        const scrollTopBtn = document.querySelector('.scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        // Sticky navbar shadow
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 30) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-container')) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+            }
+        });
+        // Animated Add to Cart and cart count
+        const cartCount = document.querySelector('.cart-count');
+        let cartTotal = 0;
+        document.querySelectorAll('.shop-add-cart-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                btn.classList.add('cart-animate');
+                setTimeout(() => btn.classList.remove('cart-animate'), 500);
+                cartTotal++;
+                cartCount.textContent = cartTotal;
+            });
+        });
+        // Product card tilt effect
+        document.querySelectorAll('.shop-product-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * 6;
+                const rotateY = ((x - centerX) / centerX) * 6;
+                card.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.025)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+        // Quick view (future modal placeholder)
+        document.querySelectorAll('.shop-quick-view-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                alert('Quick view coming soon!');
+            });
+        });
+    </script>
+</body>
+</html> 

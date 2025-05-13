@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore PipDynamic's authentic cultural wear collection - Traditional clothing from around the world featuring Kenyan Kanzu, Nigerian Agbada, Indian Saree, Japanese Kimono and Mexican Huipil.">
+    <title>Cultural Wear Collection | PipDynamic</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles/variables.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/nav.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="stylesheet" href="../styles/chat.css">
+    <link rel="stylesheet" href="../styles/product-gallery.css">
+</head>
+<body>
+    <!-- Navigation Bar (simplified for brevity) -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo"><span>Pip</span><span class="gradient-text">Dynamic</span></a>
+            
+            <div class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-list" id="nav-list">
+                <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="shop.html" class="nav-link">Shop</a></li>
+                <li class="nav-item"><a href="cultural-wear.html" class="nav-link active">Cultural Wear</a></li>
+                <li class="nav-item">
+                    <a href="cart.html" class="nav-link cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">More <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumbs container">
+        <a href="../index.html">Home</a>
+        <i class="fas fa-chevron-right separator"></i>
+        <a href="shop.html">Shop</a>
+        <i class="fas fa-chevron-right separator"></i>
+        <span class="current">Cultural Wear</span>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">Cultural Wear Collection</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Explore our authentic collection of traditional clothing from around the world. Each piece is carefully sourced and comes with detailed information about its cultural significance.</p>
+        </div>
+    </section>
+
+    <!-- Cultural Wear Gallery -->
+    <section class="product-gallery section">
+        <div class="container">
+            <!-- Filter Controls -->
+            <div class="filter-controls" data-aos="fade-up">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Regions</button>
+                    <button class="filter-btn" data-filter="africa">Africa</button>
+                    <button class="filter-btn" data-filter="asia">Asia</button>
+                    <button class="filter-btn" data-filter="americas">Americas</button>
+                </div>
+                <select class="form-select" id="product-sort">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" data-aos="fade-up">
+                <!-- Kenyan Kanzu -->
+                <div class="product-card" data-category="africa">
+                    <div class="product-image">
+                        <img src="../images/cultural-wear/kenyan-kanzu.jpg" 
+                             alt="Kenyan Kanzu - Traditional white robe worn by Swahili men in Kenya for special occasions and religious ceremonies" 
+                             loading="lazy">
+                        <span class="product-badge">New</span>
+                        <div class="product-actions">
+                            <button class="action-btn wishlist" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn preview" aria-label="Quick view">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kenyan Kanzu</h3>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(18)</span>
+                            </div>
+                            <span class="price">$89.99</span>
+                        </div>
+                        <p class="product-description">Traditional Kenyan robe-like garment for men, typically white and worn during special occasions.</p>
+                        <div class="product-details">
+                            <span class="detail"><i class="fas fa-map-marker-alt"></i> Kenya, East Africa</span>
+                            <span class="detail"><i class="fas fa-check-circle"></i> In Stock</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart"
+                                data-id="kenyan-kanzu"
+                                data-name="Kenyan Kanzu"
+                                data-price="89.99"
+                                data-image="../images/cultural-wear/kenyan-kanzu.jpg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Nigerian Agbada -->
+                <div class="product-card" data-category="africa">
+                    <div class="product-image">
+                        <img src="../images/cultural-wear/nigerian-agbada.jpg" 
+                             alt="Nigerian Agbada - Flowing wide-sleeved robe worn by Yoruba men in Nigeria for ceremonies and formal occasions" 
+                             loading="lazy">
+                        <span class="product-badge">Best Seller</span>
+                        <div class="product-actions">
+                            <button class="action-btn wishlist" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn preview" aria-label="Quick view">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Nigerian Agbada</h3>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(32)</span>
+                            </div>
+                            <span class="price">$129.99</span>
+                        </div>
+                        <p class="product-description">Flowing wide-sleeved robe worn by men in Nigeria, typically made of rich, embroidered fabric.</p>
+                        <div class="product-details">
+                            <span class="detail"><i class="fas fa-map-marker-alt"></i> Nigeria, West Africa</span>
+                            <span class="detail"><i class="fas fa-check-circle"></i> In Stock</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart"
+                                data-id="nigerian-agbada"
+                                data-name="Nigerian Agbada"
+                                data-price="129.99"
+                                data-image="../images/cultural-wear/nigerian-agbada.jpg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Indian Saree -->
+                <div class="product-card" data-category="asia">
+                    <div class="product-image">
+                        <img src="../images/cultural-wear/indian-saree.jpg" 
+                             alt="Indian Saree - Traditional garment from India consisting of a drape varying from 5 to 9 yards with intricate designs" 
+                             loading="lazy">
+                        <span class="product-badge">Sale</span>
+                        <div class="product-actions">
+                            <button class="action-btn wishlist" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn preview" aria-label="Quick view">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Indian Saree</h3>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(45)</span>
+                            </div>
+                            <div class="price-container">
+                                <span class="price">$149.99</span>
+                                <span class="original-price">$179.99</span>
+                            </div>
+                        </div>
+                        <p class="product-description">Traditional garment worn by women across India, consisting of a drape varying from 5 to 9 yards.</p>
+                        <div class="product-details">
+                            <span class="detail"><i class="fas fa-map-marker-alt"></i> India, South Asia</span>
+                            <span class="detail"><i class="fas fa-check-circle"></i> In Stock</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart"
+                                data-id="indian-saree"
+                                data-name="Indian Saree"
+                                data-price="149.99"
+                                data-image="../images/cultural-wear/indian-saree.jpg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Japanese Kimono -->
+                <div class="product-card" data-category="asia">
+                    <div class="product-image">
+                        <img src="../images/cultural-wear/japanese-kimono.jpg" 
+                             alt="Japanese Kimono - Traditional T-shaped wrapped garment with wide sleeves and decorative designs worn in Japan" 
+                             loading="lazy">
+                        <span class="product-badge">Limited</span>
+                        <div class="product-actions">
+                            <button class="action-btn wishlist" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn preview" aria-label="Quick view">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Japanese Kimono</h3>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(27)</span>
+                            </div>
+                            <span class="price">$199.99</span>
+                        </div>
+                        <p class="product-description">Traditional Japanese garment and the national dress of Japan, with T-shaped, straight-lined robes.</p>
+                        <div class="product-details">
+                            <span class="detail"><i class="fas fa-map-marker-alt"></i> Japan, East Asia</span>
+                            <span class="detail"><i class="fas fa-check-circle"></i> In Stock</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart"
+                                data-id="japanese-kimono"
+                                data-name="Japanese Kimono"
+                                data-price="199.99"
+                                data-image="../images/cultural-wear/japanese-kimono.jpg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mexican Huipil -->
+                <div class="product-card" data-category="americas">
+                    <div class="product-image">
+                        <img src="../images/cultural-wear/mexican-huipil.jpg" 
+                             alt="Mexican Huipil - Traditional embroidered blouse worn by indigenous women in Mexico featuring colorful patterns and symbols" 
+                             loading="lazy">
+                        <div class="product-actions">
+                            <button class="action-btn wishlist" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn preview" aria-label="Quick view">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Mexican Huipil</h3>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(21)</span>
+                            </div>
+                            <span class="price">$79.99</span>
+                        </div>
+                        <p class="product-description">Embroidered blouse or dress worn by indigenous women from central Mexico to Central America.</p>
+                        <div class="product-details">
+                            <span class="detail"><i class="fas fa-map-marker-alt"></i> Mexico, North America</span>
+                            <span class="detail"><i class="fas fa-times-circle out-of-stock"></i> Out of Stock</span>
+                        </div>
+                        <button class="btn btn-outline notify-me"
+                                data-id="mexican-huipil">
+                            Notify When Available
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Heritage Section -->
+    <section class="cultural-heritage section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Cultural Heritage & Authenticity</h2>
+            <div class="content-wrapper" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-content">
+                    <p>At PipDynamic, we take pride in offering authentic cultural wear that respects and celebrates the rich heritage of different cultures around the world. Each piece in our collection is carefully sourced and represents traditional craftsmanship and design.</p>
+                    
+                    <p>We work directly with artisans and ethical manufacturers to ensure that our products are not only beautiful but also respect the cultural significance of each garment. Every item comes with information about its origin, significance, and traditional uses.</p>
+                    
+                    <p>Our commitment to cultural authenticity means that we research extensively and consult with cultural experts to ensure that our products and descriptions are accurate and respectful.</p>
+                </div>
+                <div class="image-content" data-aos="fade-left">
+                    <img src="../images/cultural-artisans.jpg" alt="Artisans crafting traditional cultural wear using authentic techniques" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section (abbreviated) -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2 class="newsletter-title" data-aos="fade-up">Join Our Cultural Journey</h2>
+                <p class="newsletter-text" data-aos="fade-up" data-aos-delay="100">Subscribe to receive updates on new cultural wear arrivals and stories behind the traditions.</p>
+                <form class="newsletter-form" data-aos="fade-up" data-aos-delay="200">
+                    <input type="email" placeholder="Enter your email" required aria-label="Email address">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (abbreviated) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Footer content here -->
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PipDynamic. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Live Chat Widget -->
+    <div class="live-chat-icon" id="live-chat-icon" aria-label="Open live chat" tabindex="0">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+    <div class="live-chat-box" id="live-chat-box" role="dialog" aria-modal="true" aria-labelledby="live-chat-header">
+        <div class="live-chat-header" id="live-chat-header">
+            <div class="chat-title">
+                <i class="fas fa-comment-dots"></i>
+                <span>PipDynamic Support</span>
+            </div>
+            <button class="close-modal" id="close-live-chat" aria-label="Close chat">&times;</button>
+        </div>
+        <div class="live-chat-messages" id="live-chat-messages">
+            <!-- Messages will be added here dynamically -->
+        </div>
+        <form class="live-chat-input" id="live-chat-form" autocomplete="off">
+            <input type="text" id="live-chat-input" placeholder="Type your message..." aria-label="Type your message">
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+        </form>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/chat-support.js"></script>
+    <script src="../scripts/product-gallery.js"></script>
+</body>
+</html> 
